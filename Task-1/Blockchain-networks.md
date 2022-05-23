@@ -41,7 +41,7 @@ Consortium blockchain networks are used in supply chains, banking and research
 
 ### Resources
 
-- "https://earthweb.com/how-many-blockchains-are-there/ "
-- "https://cointelegraph.com/blockchain-for-beginners/a-beginners-guide-to-the-different-types-of-blockchain-networks" 
-- "https://101blockchains.com/public-vs-private-blockchain/" 
+- https://earthweb.com/how-many-blockchains-are-there/ 
+- https://cointelegraph.com/blockchain-for-beginners/a-beginners-guide-to-the-different-types-of-blockchain-networks
+- https://101blockchains.com/public-vs-private-blockchain/
 

@@ -27,5 +27,5 @@ It is revolutionising consensus mechanisms with its “proof of history” conce
 
 ### Resources
 
-- "https://hedera.com/learning/what-is-decentralized-finance" 
-- "https://finance.yahoo.com/news/top-10-defi-projects-watch-151711072.html" 
+- https://hedera.com/learning/what-is-decentralized-finance
+- https://finance.yahoo.com/news/top-10-defi-projects-watch-151711072.html
