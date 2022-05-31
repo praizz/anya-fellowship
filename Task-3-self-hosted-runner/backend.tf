@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket         = "infrastructure-state-bucket"
+    bucket         = "terraform-backend"
     key            =  "terraform.tfstate"
   }
 }
