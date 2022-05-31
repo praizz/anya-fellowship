@@ -46,7 +46,7 @@ resource "aws_instance" "runner_ec2" {
 
 ####################### S3 BUCKET ###################################
 resource "aws_s3_bucket" "backend" {
-  bucket = "terraform-backend"
+  bucket = "anya-fellowship-runner-terraform-backend"
   acl    = "private"
 }
 
