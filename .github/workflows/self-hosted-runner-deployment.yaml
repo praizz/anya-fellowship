@@ -9,6 +9,7 @@ on:
       - "Task-3-self-hosted-runner/**"  
 
 env:
+  DEPLOY_DIRECTORY: "Task-3-self-hosted-runner/"
   AWS_ACCESS_KEY_ID:  ${ secrets.AWS_ACCESS_KEY_ID }
   AWS_SECRET_ACCESS_KEY:  ${ secrets.AWS_SECRET_ACCESS_KEY }
 
@@ -19,12 +20,15 @@ jobs:
     steps:
     - name: Terraform Init
       run: |
+        cd $DEPLOY_DIRECTORY
         terraform init
         
     - name: Terraform validate
       run: |
+        cd $DEPLOY_DIRECTORY
         terraform validate
-        
+
     - name: Terraform Apply
       run: |
+        cd $DEPLOY_DIRECTORY
         terraform apply -auto-approve -var 'github_access_token=${ secrets.PERSONAL_ACCESS_TOKEN }'
