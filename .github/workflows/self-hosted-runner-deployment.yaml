@@ -1,0 +1,30 @@
+name: Deploy EC2 instance for self hosted runners
+
+on:
+  push: 
+    branches: 
+      - main
+      - deploy  
+    paths:
+      - "Task-3-self-hosted-runner/**"  
+
+env:
+  AWS_ACCESS_KEY_ID:  ${ secrets.AWS_ACCESS_KEY_ID }
+  AWS_SECRET_ACCESS_KEY:  ${ secrets.AWS_SECRET_ACCESS_KEY }
+
+jobs:
+  build: 
+    name: Deploy EC2
+    runs-on: ubuntu-latest
+    steps:
+    - name: Terraform Init
+      run: |
+        terraform init
+        
+    - name: Terraform validate
+      run: |
+        terraform validate
+        
+    - name: Terraform Apply
+      run: |
+        terraform apply -auto-approve -var 'github_access_token=${ secrets.PERSONAL_ACCESS_TOKEN }'
