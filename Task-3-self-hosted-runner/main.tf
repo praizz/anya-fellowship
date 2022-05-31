@@ -7,4 +7,7 @@ module "self-hosted-runner" {
   ami_owner           = var.ami_owner # canonical amazon amis
 }
 
-
+resource "aws_s3_bucket" "backend" {
+  bucket = "anya-fellowship-runner-terraform-backend-d3f9ccbcc873"
+  acl    = "private"
+}
