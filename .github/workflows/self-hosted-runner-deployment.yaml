@@ -4,7 +4,7 @@ on:
   push: 
     branches: 
       - main
-      - deploy  
+      # - deploy  
     paths:
       - "Task-3-self-hosted-runner/**"  
 

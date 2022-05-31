@@ -27,7 +27,7 @@ resource "aws_security_group" "runner_security_group" {
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-  }  
+  }
 }
 
 ####################### EC2 INSTANCE ###################################
@@ -37,7 +37,7 @@ resource "aws_instance" "runner_ec2" {
 
   vpc_security_group_ids = [aws_security_group.runner_security_group.id]
 
-  user_data = templatefile("${path.module}/scripts/startup-script.sh", { github_access_token = var.github_access_token, repo_url = var.repo_url})
+  user_data = templatefile("${path.module}/scripts/startup-script.sh", { github_access_token = var.github_access_token, repo_url = var.repo_url, api_token_registration_url = var.api_token_registration_url })
   tags = {
     Name = "Github-Runner"
     Type = "Terraform"

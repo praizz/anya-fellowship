@@ -1,6 +1,7 @@
 terraform {
   backend "s3" {
-    bucket         = "anya-fellowship-runner-terraform-backend-d3f9ccbcc873"
+    bucket         = "${bucket_name}"
     key            =  "terraform.tfstate"
+    region         = eu-west-1
   }
 }
