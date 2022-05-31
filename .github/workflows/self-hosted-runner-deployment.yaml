@@ -18,6 +18,9 @@ jobs:
     name: Deploy EC2
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
     - name: Terraform Init
       run: |
         cd $DEPLOY_DIRECTORY
