@@ -44,11 +44,4 @@ resource "aws_instance" "runner_ec2" {
   }
 }
 
-####################### S3 BUCKET ###################################
-resource "aws_s3_bucket" "backend" {
-  bucket = "anya-fellowship-runner-terraform-backend"
-  acl    = "private"
-}
-
-
 # https://github.com/your_user/your_repository_name/
