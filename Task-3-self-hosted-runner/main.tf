@@ -6,3 +6,5 @@ module "self-hosted-runner" {
   ami_name            = var.ami_name
   ami_owner           = var.ami_owner # canonical amazon amis
 }
+
+
