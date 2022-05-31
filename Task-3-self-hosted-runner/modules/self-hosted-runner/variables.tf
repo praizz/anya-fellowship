@@ -22,4 +22,3 @@ variable "ami_owner"{
   description = "the name of the ami image to use"
   default = ""
 }
-
