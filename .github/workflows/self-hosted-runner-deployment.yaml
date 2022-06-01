@@ -1,0 +1,42 @@
+name: Deploy EC2 instance for self hosted runners
+
+on:
+  push: 
+    branches: 
+      - main
+      # - deploy  
+    paths:
+      - "Task-3-self-hosted-runner/**"  
+
+env:
+  DEPLOY_DIRECTORY: "Task-3-self-hosted-runner/"
+  AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+jobs:
+  build: 
+    name: Deploy EC2
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-region: eu-west-1
+
+    - name: Terraform Init
+      run: |
+        cd $DEPLOY_DIRECTORY
+        terraform init
+        
+    - name: Terraform validate
+      run: |
+        cd $DEPLOY_DIRECTORY
+        terraform validate
+
+    - name: Terraform Apply
+      run: |
+        cd $DEPLOY_DIRECTORY
+        terraform apply -auto-approve -var 'github_access_token=${ secrets.PERSONAL_ACCESS_TOKEN }'
