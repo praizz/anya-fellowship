@@ -31,5 +31,5 @@ variable "name" {
 }
 
 variable "image" {
-  default = "ami-0e6273fe5a9a1ad93"
+  default = "ami-0fe3c508bc62c4a7d"
 }
