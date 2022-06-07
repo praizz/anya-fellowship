@@ -15,7 +15,7 @@ variable "machine_type" {
 }
 
 variable "public_key" {
-  default = "ssh-rsa PUT KEY HERE"
+  default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCtmnBlrgQsWREDsuVf0jNzDg2K8GY57Xy7y8FY7/F9+zSFM2gqHviPt1kW9Ia//UyfvQFhmf3awkLlR1OIkxzn/a9vSm7++uuK7/FEQOShCF0pm87RCy+0MIkaNBi/MsbnjaLiRXcilpa3Ob+ew0EkSjingJoFt4W9SNek9GATcoKISnOZTNTr761TyA2qTpB6k1W+26EQHAk91IwEPQdy17i11TD0P3ciT6RS7BTRyUcMBn9c8L2Z/Oc9wOA7HefUheHVf8P//NT1GAgxE84B/BfqhzHgaZEQY3fYfYgA7A09dpTVGLgZAhsuQFcICKloJ9duIymLnIBTYYKm+W2p"
 }
 
 variable "ssh_user" {
