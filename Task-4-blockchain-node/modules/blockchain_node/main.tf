@@ -126,7 +126,7 @@ resource "aws_instance" "main-node" {
   key_name      = var.name
   count         = var.node_count
 
-  subnet_id              = "${aws_subnet.main-node.id}"
+  subnet_id              = aws_subnet.main-node.id
   vpc_security_group_ids = ["${aws_security_group.main-node.id}"]
 
   root_block_device {
