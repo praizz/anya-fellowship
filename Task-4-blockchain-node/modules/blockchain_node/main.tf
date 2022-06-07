@@ -134,6 +134,6 @@ resource "aws_instance" "main-node" {
   }
 
   tags = {
-    Name = "{{var.name}}-${count.index}"
+    Name = "${var.name}-${count.index}"
   }
 }
