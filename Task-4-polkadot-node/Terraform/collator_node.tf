@@ -54,7 +54,7 @@ module "polkadot_collator_node" {
 ################################################################################
 # EBS / Volume attachments
 ################################################################################
-resource "aws_volume_attachment" "this" {
+resource "aws_volume_attachment" "collator_node" {
   device_name = "/dev/sdh"
   volume_id   = aws_ebs_volume.polkadot_collator_node_ebs.id
   instance_id =  module.polkadot_collator_node.id 

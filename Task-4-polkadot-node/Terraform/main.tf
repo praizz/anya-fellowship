@@ -75,7 +75,7 @@ module "key_pair" {
   public_key = var.public_key #tls_private_key.this.public_key_openssh
 }
 
-/* module "polkadot_boot_node" {
+module "polkadot_boot_node" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 3.0"
 
@@ -108,12 +108,12 @@ module "key_pair" {
   ]
 
   tags = local.tags
-} */
+}
 
 ################################################################################
 # EBS / Volume attachments
 ################################################################################
-/* resource "aws_volume_attachment" "this" {
+resource "aws_volume_attachment" "boot_node" {
   for_each = module.polkadot_boot_node
 
   device_name = "/dev/sdh"
@@ -127,4 +127,4 @@ resource "aws_ebs_volume" "polkadot_boot_node_ebs" {
   size              = 100
 
   tags = local.tags
-} */
+}

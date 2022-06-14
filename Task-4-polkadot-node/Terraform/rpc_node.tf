@@ -79,7 +79,7 @@ resource "aws_ebs_volume" "polkadot_rpc_node_ebs" {
 ################################################################################
 resource "aws_elb" "polkadot_rpc_node" {
   name               = "${local.name}-elb"
-  availability_zones = data.aws_availability_zones.available.names
+  /* availability_zones = data.aws_availability_zones.available.names */
 
   subnets = module.polkadot_vpc.public_subnets
   listener {
