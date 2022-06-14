@@ -1,0 +1,15 @@
+[Unit]
+Description=Polkadot Bootnode
+
+[Service]
+ExecStart=polkadot --name anya-polkadot-bootnode  --pruning=archive \
+--chain=rococo --base-path=polkadot  \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 --public-addr=/ip4/0.0.0.0/tcp/30334 \
+--execution=wasm --rpc-methods=unsafe  \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 --public-addr=/ip4/0.0.0.0/tcp/30333
+
+Restart=always
+RestartSec=120
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,17 @@
+[Unit]
+Description=Polkadot Rpcnode
+
+[Service]
+ExecStart=polkadot --name anya-polkadot-rpcnode  --pruning=archive \
+--ws-port 9944 --unsafe-ws-external  --rpc-cors=all \
+--chain=rococo --base-path=polkadot  \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 --public-addr=/ip4/0.0.0.0/tcp/30334 \
+--execution=wasm --rpc-methods=unsafe  \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 --public-addr=/ip4/0.0.0.0/tcp/30333 \
+--rpc-port=9056 --enable-log-reloading
+
+Restart=always
+RestartSec=120
+
+[Install]
+WantedBy=multi-user.target
