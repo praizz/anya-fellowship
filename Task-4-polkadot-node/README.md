@@ -26,19 +26,12 @@ This spins up the infrastructure on AWS
 It also creates an AWS IAM role named `dynamic_inventory_role` that would be assumed when dealing with ansibles dynamic inventory below
 
 ## To run the Ansible script:
-Ansible was implemmted using dynamic inventories, the first step is to assume the IAM role that has full access to EC2
-``
-You can verify the role by running
-``
+Ansible was implemmted using dynamic inventories, the first step is to assume the IAM role that has full access to EC2, the role already created with Terraform
+`dynamic_inventory_role`
+You can verify the role  or you can choose to use the default role attached to the AWS CLI, provided there is EC2FullAccess permission
 
 With that, we can go ahead to run our configurations
 ```
 $cd Ansible
-$ansible-playbook rpcnode-playbook.yaml
-$ansible-playbook bootnode-playbook.yaml
-$ansible-playbook collatornode-playbook.yaml
+$ansible-playbook playbook.yaml
 ```
-
-
-
-
