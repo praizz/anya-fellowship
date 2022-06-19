@@ -11,7 +11,7 @@ module "polkadot_rpc_node_security_group" {
   vpc_id      = module.polkadot_vpc.vpc_id
 
   ingress_cidr_blocks = ["0.0.0.0/0"]
-  ingress_rules       = ["http-80-tcp", "all-icmp", "ssh-tcp", "all-all"] # TODO: figure out this security group module
+  ingress_rules       = ["http-80-tcp", "all-icmp", "ssh-tcp", "all-all"] 
   egress_rules        = ["all-all"]
 
   tags = local.tags
@@ -29,7 +29,7 @@ module "polkadot_rpc_node" {
   name = each.key
 
   ami                    = data.aws_ami.ubuntu.id
-  instance_type          = "t2.micro" #"c5.large"
+  instance_type          = "t2.micro" 
   key_name               = module.key_pair.key_pair_key_name
   monitoring             = true
   vpc_security_group_ids = [module.polkadot_rpc_node_security_group.security_group_id]
@@ -52,7 +52,9 @@ module "polkadot_rpc_node" {
     },
   ]
 
-  tags = local.tags
+  tags = {
+      node_type = "rpcnode"
+  }
 }
 
 ################################################################################

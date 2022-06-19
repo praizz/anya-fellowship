@@ -1,0 +1,6 @@
+---
+- name: start node
+  service: 
+    name|: polkadot-{{ node_type }}.service 
+    state: restarted
+

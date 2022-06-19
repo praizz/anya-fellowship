@@ -1,0 +1,44 @@
+---
+- name: Create keyrings parity directory (/usr/share/keyrings/)
+  file:
+    path: "{{ keyrings_parity }}"
+    state: directory 
+
+- name: Create etcd systemd directory (/etc/systemd/system)
+  file:
+    path: '/etc/systemd/system'
+    state: directory                      
+
+# DOWNLOAD BINARIES 
+- name: Import the security@parity.io GPG key
+  shell:
+    "gpg --recv-keys --keyserver keyserver.ubuntu.com {{ gpg_key }} "
+
+- name: export the security@parity.io GPG key
+  shell: gpg --export {{ gpg_key }} > {{ keyrings_parity }}/parity.gpg
+
+# # Add the Parity repository and update the package index    
+- name: Add the Parity repository and update the package index 
+  apt_repository:
+    repo: deb [signed-by=/usr/share/keyrings/parity.gpg] https://releases.parity.io/deb release main
+    filename: parity
+    state: present
+
+- name: Ansible apt-get to get install polkadot
+  apt:
+    state: present
+    name: 
+      - parity-keyring
+      - polkadot
+
+# CONFIGURE POLKADOT SYSTEMD SERVICE
+- name: Copy systemd init file
+  copy:
+    src: polkadot-{{ node_type }}.service
+    dest: /etc/systemd/system/polkadot-{{ node_type }}.service
+
+- name: Start polkadot bootnode service
+  systemd:
+    name: polkadot-bootnode.service
+    state: started
+    enabled: yes
